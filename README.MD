@@ -12,3 +12,4 @@
 - Implement INFO and ERROR logging.
 - Add icon to MainForm.
 - Implement method to export original file names and file path to a text (.txt) file before file renaming and moving.
+- Add additional common language codes to the "Lang" selection.

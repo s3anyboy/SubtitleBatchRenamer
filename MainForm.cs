@@ -10,7 +10,8 @@ namespace SubtitleRenamer
 
         private void videoFolderPickerButton_Click(object sender, EventArgs e)
         {
-            if (videoFolderPicker.ShowDialog() == DialogResult.OK)
+            DialogResult videoFolderPickerDialogResult = videoFolderPicker.ShowDialog();
+            if (videoFolderPickerDialogResult == DialogResult.OK)
             {
                 videoFolderPathTextbox.Text = videoFolderPicker.SelectedPath;
                 searchVideoFilesButton.Enabled = true;
@@ -19,7 +20,7 @@ namespace SubtitleRenamer
                 subtitleDataGridView.Rows.Clear();
                 videoFilesFoundComboBox.Items.Clear();
             }
-            else if (videoFolderPicker.ShowDialog() == DialogResult.Cancel)
+            else if (videoFolderPickerDialogResult == DialogResult.Cancel)
             {
                 videoFolderPathTextbox.Text = null;
                 subtitleDataGridView.Rows.Clear();
@@ -199,7 +200,7 @@ namespace SubtitleRenamer
                         DataGridViewCheckBoxCell appendLangCheckboxCell = row.Cells[subtitleDataGridAppendLangCheckboxCol.Index] as DataGridViewCheckBoxCell;
                         DataGridViewCheckBoxCell appendNumCheckboxCell = row.Cells[subtitleDataGridAppendNumCheckboxCol.Index] as DataGridViewCheckBoxCell;
 
-                        if ((bool)row.Cells[subtitleDataGridAppendLangCheckboxCol.Index].Value == true)
+                        if (row.Cells[subtitleDataGridAppendLangCheckboxCol.Index].Value != null && (bool)row.Cells[subtitleDataGridAppendLangCheckboxCol.Index].Value == true)
                         {
                             if (row.Cells[subtitleDataGridLangSelectionCol.Index].Value != null && row.Cells[subtitleDataGridLangSelectionCol.Index].Value.ToString() != "")
                             {
@@ -212,7 +213,7 @@ namespace SubtitleRenamer
                             }
                         }
 
-                        if ((bool)row.Cells[subtitleDataGridAppendNumCheckboxCol.Index].Value == true)
+                        if (row.Cells[subtitleDataGridAppendNumCheckboxCol.Index].Value != null && (bool)row.Cells[subtitleDataGridAppendNumCheckboxCol.Index].Value == true)
                         {
                             if (row.Cells[subtitleDataGridNumSelectionCol.Index].Value != null && row.Cells[subtitleDataGridNumSelectionCol.Index].Value.ToString() != "")
                             {
