@@ -1,4 +1,4 @@
-namespace SubtitleRenamer
+namespace SubtitleBatchRenamer
 {
     public partial class MainForm : Form
     {
