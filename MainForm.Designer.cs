@@ -70,10 +70,10 @@
             // searchVideoFilesButton
             // 
             searchVideoFilesButton.Dock = DockStyle.Right;
-            searchVideoFilesButton.Location = new Point(984, 0);
+            searchVideoFilesButton.Location = new Point(860, 0);
             searchVideoFilesButton.Margin = new Padding(0);
             searchVideoFilesButton.Name = "searchVideoFilesButton";
-            searchVideoFilesButton.Size = new Size(170, 30);
+            searchVideoFilesButton.Size = new Size(149, 22);
             searchVideoFilesButton.TabIndex = 6;
             searchVideoFilesButton.Text = "Search for Video Files";
             searchVideoFilesButton.UseVisualStyleBackColor = true;
@@ -97,13 +97,14 @@
             subtitleDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             subtitleDataGridView.Columns.AddRange(new DataGridViewColumn[] { subtitleDataGridIndexCol, subtitleDataGridSubtitleFileNameCol, subtitleDataGridVideoFileCol, subtitleDataGridSkipCol, subtitleDataGridAppendLangCheckboxCol, subtitleDataGridLangSelectionCol, subtitleDataGridAppendNumCheckboxCol, subtitleDataGridNumSelectionCol });
             subtitleDataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
-            subtitleDataGridView.Location = new Point(12, 84);
+            subtitleDataGridView.Location = new Point(10, 63);
+            subtitleDataGridView.Margin = new Padding(3, 2, 3, 2);
             subtitleDataGridView.Name = "subtitleDataGridView";
             subtitleDataGridView.RowHeadersVisible = false;
             subtitleDataGridView.RowHeadersWidth = 51;
             subtitleDataGridView.RowTemplate.Height = 29;
             subtitleDataGridView.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            subtitleDataGridView.Size = new Size(1324, 535);
+            subtitleDataGridView.Size = new Size(1158, 401);
             subtitleDataGridView.StandardTab = true;
             subtitleDataGridView.TabIndex = 7;
             // 
@@ -113,7 +114,7 @@
             subtitleDataGridIndexCol.HeaderText = "No.";
             subtitleDataGridIndexCol.MinimumWidth = 6;
             subtitleDataGridIndexCol.Name = "subtitleDataGridIndexCol";
-            subtitleDataGridIndexCol.Width = 61;
+            subtitleDataGridIndexCol.Width = 51;
             // 
             // subtitleDataGridSubtitleFileNameCol
             // 
@@ -136,7 +137,7 @@
             subtitleDataGridSkipCol.MinimumWidth = 6;
             subtitleDataGridSkipCol.Name = "subtitleDataGridSkipCol";
             subtitleDataGridSkipCol.Resizable = DataGridViewTriState.False;
-            subtitleDataGridSkipCol.Width = 70;
+            subtitleDataGridSkipCol.Width = 56;
             // 
             // subtitleDataGridAppendLangCheckboxCol
             // 
@@ -144,7 +145,7 @@
             subtitleDataGridAppendLangCheckboxCol.HeaderText = "Append Lang";
             subtitleDataGridAppendLangCheckboxCol.MinimumWidth = 6;
             subtitleDataGridAppendLangCheckboxCol.Name = "subtitleDataGridAppendLangCheckboxCol";
-            subtitleDataGridAppendLangCheckboxCol.Width = 104;
+            subtitleDataGridAppendLangCheckboxCol.Width = 84;
             // 
             // subtitleDataGridLangSelectionCol
             // 
@@ -152,7 +153,7 @@
             subtitleDataGridLangSelectionCol.HeaderText = "Lang";
             subtitleDataGridLangSelectionCol.MinimumWidth = 6;
             subtitleDataGridLangSelectionCol.Name = "subtitleDataGridLangSelectionCol";
-            subtitleDataGridLangSelectionCol.Width = 47;
+            subtitleDataGridLangSelectionCol.Width = 39;
             // 
             // subtitleDataGridAppendNumCheckboxCol
             // 
@@ -160,7 +161,7 @@
             subtitleDataGridAppendNumCheckboxCol.HeaderText = "Append Num";
             subtitleDataGridAppendNumCheckboxCol.MinimumWidth = 6;
             subtitleDataGridAppendNumCheckboxCol.Name = "subtitleDataGridAppendNumCheckboxCol";
-            subtitleDataGridAppendNumCheckboxCol.Width = 104;
+            subtitleDataGridAppendNumCheckboxCol.Width = 85;
             // 
             // subtitleDataGridNumSelectionCol
             // 
@@ -168,34 +169,35 @@
             subtitleDataGridNumSelectionCol.HeaderText = "Num";
             subtitleDataGridNumSelectionCol.MinimumWidth = 6;
             subtitleDataGridNumSelectionCol.Name = "subtitleDataGridNumSelectionCol";
-            subtitleDataGridNumSelectionCol.Width = 47;
+            subtitleDataGridNumSelectionCol.Width = 40;
             // 
             // videoFilesFoundComboBox
             // 
             videoFilesFoundComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             videoFilesFoundComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             videoFilesFoundComboBox.FormattingEnabled = true;
-            videoFilesFoundComboBox.Location = new Point(136, 1);
+            videoFilesFoundComboBox.Location = new Point(119, 1);
+            videoFilesFoundComboBox.Margin = new Padding(3, 2, 3, 2);
             videoFilesFoundComboBox.Name = "videoFilesFoundComboBox";
-            videoFilesFoundComboBox.Size = new Size(1188, 28);
+            videoFilesFoundComboBox.Size = new Size(1040, 23);
             videoFilesFoundComboBox.TabIndex = 8;
             // 
             // videoFilesComboBoxLabel
             // 
             videoFilesComboBoxLabel.AutoSize = true;
-            videoFilesComboBoxLabel.Location = new Point(3, 5);
+            videoFilesComboBoxLabel.Location = new Point(3, 4);
             videoFilesComboBoxLabel.Name = "videoFilesComboBoxLabel";
-            videoFilesComboBoxLabel.Size = new Size(129, 20);
+            videoFilesComboBoxLabel.Size = new Size(103, 15);
             videoFilesComboBoxLabel.TabIndex = 9;
             videoFilesComboBoxLabel.Text = "Video Files Found:";
             // 
             // searchSubtitleFilesButton
             // 
             searchSubtitleFilesButton.Dock = DockStyle.Right;
-            searchSubtitleFilesButton.Location = new Point(1154, 0);
+            searchSubtitleFilesButton.Location = new Point(1009, 0);
             searchSubtitleFilesButton.Margin = new Padding(0);
             searchSubtitleFilesButton.Name = "searchSubtitleFilesButton";
-            searchSubtitleFilesButton.Size = new Size(170, 30);
+            searchSubtitleFilesButton.Size = new Size(149, 22);
             searchSubtitleFilesButton.TabIndex = 10;
             searchSubtitleFilesButton.Text = "Search for Subtitles";
             searchSubtitleFilesButton.UseVisualStyleBackColor = true;
@@ -204,9 +206,10 @@
             // processFileRenamingButton
             // 
             processFileRenamingButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            processFileRenamingButton.Location = new Point(1010, 656);
+            processFileRenamingButton.Location = new Point(884, 492);
+            processFileRenamingButton.Margin = new Padding(3, 2, 3, 2);
             processFileRenamingButton.Name = "processFileRenamingButton";
-            processFileRenamingButton.Size = new Size(160, 29);
+            processFileRenamingButton.Size = new Size(140, 22);
             processFileRenamingButton.TabIndex = 11;
             processFileRenamingButton.Text = "Process Files";
             processFileRenamingButton.UseVisualStyleBackColor = true;
@@ -215,9 +218,10 @@
             // exitButton
             // 
             exitButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            exitButton.Location = new Point(1176, 656);
+            exitButton.Location = new Point(1029, 492);
+            exitButton.Margin = new Padding(3, 2, 3, 2);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(160, 29);
+            exitButton.Size = new Size(140, 22);
             exitButton.TabIndex = 12;
             exitButton.Text = "Exit";
             exitButton.UseVisualStyleBackColor = true;
@@ -228,9 +232,10 @@
             langComboBoxHidden.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             langComboBoxHidden.FormattingEnabled = true;
             langComboBoxHidden.Items.AddRange(new object[] { "en", "en.SDH", "es", "fr", "aa", "ab", "ae", "af", "ak", "am", "an", "ar", "as", "av", "ay", "az", "ba", "be", "bg", "bh", "bi", "bm", "bn", "bo", "br", "bs", "ca", "ce", "ch", "co", "cr", "cs", "cu", "cv", "cy", "da", "de", "dv", "dz", "ee", "el", "eo", "et", "eu", "fa", "ff", "fi", "fj", "fo", "fy", "ga", "gd", "gl", "gn", "gu", "gv", "ha", "he", "hi", "ho", "hr", "ht", "hu", "hy", "hz", "ia", "id", "ie", "ig", "ii", "ik", "io", "is", "it", "iu", "ja", "jv", "ka", "kg", "ki", "kj", "kk", "kl", "km", "kn", "ko", "kr", "ks", "ku", "kv", "kw", "ky", "la", "lb", "lg", "li", "ln", "lo", "lt", "lu", "lv", "mg", "mh", "mi", "mk", "ml", "mn", "mr", "ms", "mt", "my", "na", "nb", "nd", "ne", "ng", "nl", "nn", "no", "nr", "nv", "ny", "oc", "oj", "om", "or", "os", "pa", "pi", "pl", "ps", "pt", "qu", "rm", "rn", "ro", "ru", "rw", "sa", "sc", "sd", "se", "sg", "si", "sk", "sl", "sm", "sn", "so", "sq", "sr", "ss", "st", "su", "sv", "sw", "ta", "te", "tg", "th", "ti", "tk", "tl", "tn", "to", "tr", "ts", "tt", "tw", "ty", "ug", "uk", "ur", "uz", "ve", "vi", "vo", "wa", "wo", "wx", "io", "za", "zh", "zu" });
-            langComboBoxHidden.Location = new Point(12, 657);
+            langComboBoxHidden.Location = new Point(10, 493);
+            langComboBoxHidden.Margin = new Padding(3, 2, 3, 2);
             langComboBoxHidden.Name = "langComboBoxHidden";
-            langComboBoxHidden.Size = new Size(151, 28);
+            langComboBoxHidden.Size = new Size(133, 23);
             langComboBoxHidden.TabIndex = 13;
             langComboBoxHidden.Visible = false;
             // 
@@ -239,9 +244,10 @@
             numComboBoxHidden.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             numComboBoxHidden.FormattingEnabled = true;
             numComboBoxHidden.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            numComboBoxHidden.Location = new Point(169, 657);
+            numComboBoxHidden.Location = new Point(148, 493);
+            numComboBoxHidden.Margin = new Padding(3, 2, 3, 2);
             numComboBoxHidden.Name = "numComboBoxHidden";
-            numComboBoxHidden.Size = new Size(151, 28);
+            numComboBoxHidden.Size = new Size(133, 23);
             numComboBoxHidden.TabIndex = 14;
             numComboBoxHidden.Visible = false;
             // 
@@ -254,9 +260,10 @@
             topControlPanel1.Controls.Add(fileFormatComboBox);
             topControlPanel1.Controls.Add(searchVideoFilesButton);
             topControlPanel1.Controls.Add(searchSubtitleFilesButton);
-            topControlPanel1.Location = new Point(12, 12);
+            topControlPanel1.Location = new Point(10, 9);
+            topControlPanel1.Margin = new Padding(3, 2, 3, 2);
             topControlPanel1.Name = "topControlPanel1";
-            topControlPanel1.Size = new Size(1324, 30);
+            topControlPanel1.Size = new Size(1158, 22);
             topControlPanel1.TabIndex = 15;
             // 
             // videoFolderPathTextbox
@@ -265,18 +272,19 @@
             videoFolderPathTextbox.BackColor = Color.White;
             videoFolderPathTextbox.Enabled = false;
             videoFolderPathTextbox.ForeColor = Color.White;
-            videoFolderPathTextbox.Location = new Point(111, 2);
+            videoFolderPathTextbox.Location = new Point(97, 2);
+            videoFolderPathTextbox.Margin = new Padding(3, 2, 3, 2);
             videoFolderPathTextbox.Name = "videoFolderPathTextbox";
-            videoFolderPathTextbox.Size = new Size(696, 27);
+            videoFolderPathTextbox.Size = new Size(610, 23);
             videoFolderPathTextbox.TabIndex = 1;
             // 
             // videoFileFormatDropdownLabel
             // 
             videoFileFormatDropdownLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             videoFileFormatDropdownLabel.AutoSize = true;
-            videoFileFormatDropdownLabel.Location = new Point(819, 5);
+            videoFileFormatDropdownLabel.Location = new Point(717, 4);
             videoFileFormatDropdownLabel.Name = "videoFileFormatDropdownLabel";
-            videoFileFormatDropdownLabel.Size = new Size(59, 20);
+            videoFileFormatDropdownLabel.Size = new Size(48, 15);
             videoFileFormatDropdownLabel.TabIndex = 4;
             videoFileFormatDropdownLabel.Text = "Format:";
             // 
@@ -284,8 +292,9 @@
             // 
             videoFolderPickerButton.Dock = DockStyle.Left;
             videoFolderPickerButton.Location = new Point(0, 0);
+            videoFolderPickerButton.Margin = new Padding(3, 2, 3, 2);
             videoFolderPickerButton.Name = "videoFolderPickerButton";
-            videoFolderPickerButton.Size = new Size(105, 30);
+            videoFolderPickerButton.Size = new Size(92, 22);
             videoFolderPickerButton.TabIndex = 2;
             videoFolderPickerButton.Text = "Browse ...";
             videoFolderPickerButton.UseVisualStyleBackColor = true;
@@ -300,9 +309,10 @@
             fileFormatComboBox.ForeColor = SystemColors.WindowText;
             fileFormatComboBox.FormattingEnabled = true;
             fileFormatComboBox.Items.AddRange(new object[] { "All Files", "AVI", "MKV", "MP4", "RM", "WMV" });
-            fileFormatComboBox.Location = new Point(878, 1);
+            fileFormatComboBox.Location = new Point(768, 1);
+            fileFormatComboBox.Margin = new Padding(3, 2, 3, 2);
             fileFormatComboBox.Name = "fileFormatComboBox";
-            fileFormatComboBox.Size = new Size(105, 28);
+            fileFormatComboBox.Size = new Size(92, 23);
             fileFormatComboBox.TabIndex = 5;
             // 
             // topControlPanel2
@@ -310,17 +320,19 @@
             topControlPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             topControlPanel2.Controls.Add(videoFilesComboBoxLabel);
             topControlPanel2.Controls.Add(videoFilesFoundComboBox);
-            topControlPanel2.Location = new Point(12, 48);
+            topControlPanel2.Location = new Point(10, 36);
+            topControlPanel2.Margin = new Padding(3, 2, 3, 2);
             topControlPanel2.Name = "topControlPanel2";
-            topControlPanel2.Size = new Size(1324, 30);
+            topControlPanel2.Size = new Size(1158, 22);
             topControlPanel2.TabIndex = 16;
             // 
             // startOverButton
             // 
             startOverButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            startOverButton.Location = new Point(844, 656);
+            startOverButton.Location = new Point(738, 492);
+            startOverButton.Margin = new Padding(3, 2, 3, 2);
             startOverButton.Name = "startOverButton";
-            startOverButton.Size = new Size(160, 29);
+            startOverButton.Size = new Size(140, 22);
             startOverButton.TabIndex = 17;
             startOverButton.Text = "Start Over";
             startOverButton.UseVisualStyleBackColor = true;
@@ -330,9 +342,10 @@
             // 
             selectAllAppendNumCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllAppendNumCheckBox.AutoSize = true;
-            selectAllAppendNumCheckBox.Location = new Point(1216, 626);
+            selectAllAppendNumCheckBox.Location = new Point(1071, 469);
+            selectAllAppendNumCheckBox.Margin = new Padding(3, 2, 3, 2);
             selectAllAppendNumCheckBox.Name = "selectAllAppendNumCheckBox";
-            selectAllAppendNumCheckBox.Size = new Size(120, 24);
+            selectAllAppendNumCheckBox.Size = new Size(98, 19);
             selectAllAppendNumCheckBox.TabIndex = 18;
             selectAllAppendNumCheckBox.Text = "Append Num";
             selectAllAppendNumCheckBox.UseVisualStyleBackColor = true;
@@ -342,9 +355,9 @@
             // 
             selectAllLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllLabel.AutoSize = true;
-            selectAllLabel.Location = new Point(839, 627);
+            selectAllLabel.Location = new Point(734, 470);
             selectAllLabel.Name = "selectAllLabel";
-            selectAllLabel.Size = new Size(151, 20);
+            selectAllLabel.Size = new Size(118, 15);
             selectAllLabel.TabIndex = 19;
             selectAllLabel.Text = "Select / De-select All:";
             // 
@@ -352,9 +365,10 @@
             // 
             selectAllAppendLangCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllAppendLangCheckBox.AutoSize = true;
-            selectAllAppendLangCheckBox.Location = new Point(1090, 626);
+            selectAllAppendLangCheckBox.Location = new Point(962, 469);
+            selectAllAppendLangCheckBox.Margin = new Padding(3, 2, 3, 2);
             selectAllAppendLangCheckBox.Name = "selectAllAppendLangCheckBox";
-            selectAllAppendLangCheckBox.Size = new Size(120, 24);
+            selectAllAppendLangCheckBox.Size = new Size(97, 19);
             selectAllAppendLangCheckBox.TabIndex = 20;
             selectAllAppendLangCheckBox.Text = "Append Lang";
             selectAllAppendLangCheckBox.UseVisualStyleBackColor = true;
@@ -364,9 +378,10 @@
             // 
             selectAllSkipFileCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllSkipFileCheckBox.AutoSize = true;
-            selectAllSkipFileCheckBox.Location = new Point(996, 626);
+            selectAllSkipFileCheckBox.Location = new Point(878, 469);
+            selectAllSkipFileCheckBox.Margin = new Padding(3, 2, 3, 2);
             selectAllSkipFileCheckBox.Name = "selectAllSkipFileCheckBox";
-            selectAllSkipFileCheckBox.Size = new Size(86, 24);
+            selectAllSkipFileCheckBox.Size = new Size(69, 19);
             selectAllSkipFileCheckBox.TabIndex = 21;
             selectAllSkipFileCheckBox.Text = "Skip File";
             selectAllSkipFileCheckBox.UseVisualStyleBackColor = true;
@@ -374,9 +389,9 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1348, 703);
+            ClientSize = new Size(1181, 533);
             Controls.Add(selectAllSkipFileCheckBox);
             Controls.Add(selectAllAppendLangCheckBox);
             Controls.Add(selectAllLabel);
@@ -389,9 +404,11 @@
             Controls.Add(exitButton);
             Controls.Add(processFileRenamingButton);
             Controls.Add(subtitleDataGridView);
-            MinimumSize = new Size(1366, 750);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(1197, 572);
             Name = "MainForm";
             Text = "Subtitle Renamer";
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)subtitleDataGridView).EndInit();
             topControlPanel1.ResumeLayout(false);
             topControlPanel1.PerformLayout();
