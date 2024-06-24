@@ -1,4 +1,4 @@
-﻿namespace SubtitleRenamer
+﻿namespace SubtitleBatchRenamer
 {
     partial class MainForm
     {
