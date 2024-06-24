@@ -1,4 +1,6 @@
-namespace SubtitleRenamer
+using System.Windows.Forms;
+
+namespace SubtitleBatchRenamer
 {
     public partial class MainForm : Form
     {
@@ -6,6 +8,7 @@ namespace SubtitleRenamer
         {
             InitializeComponent();
             CustomInitialization();
+            this.Icon = Properties.Resources.SBR;
         }
 
         private void videoFolderPickerButton_Click(object sender, EventArgs e)
@@ -338,6 +341,11 @@ namespace SubtitleRenamer
                     }
                 }
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

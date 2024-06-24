@@ -1,4 +1,4 @@
-# Subtitle Renamer
+# Subtitle Batch Renamer
 
 
 ## Summary
@@ -10,6 +10,6 @@
 ## To-Dos in future updates
 
 - Implement INFO and ERROR logging.
-- Add icon to MainForm.
 - Implement method to export original file names and file path to a text (.txt) file before file renaming and moving.
-- Add additional common language codes to the "Lang" selection.
+- Add about section with application info and languages list.
+- Add seperate Append option for additional subtitle labels (SDH/HI, CC, FORCED, ETC)

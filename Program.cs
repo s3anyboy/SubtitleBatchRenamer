@@ -1,4 +1,4 @@
-namespace SubtitleRenamer
+namespace SubtitleBatchRenamer
 {
     internal static class Program
     {
