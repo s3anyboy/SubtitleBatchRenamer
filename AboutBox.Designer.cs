@@ -55,8 +55,8 @@
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5.263158F));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.68421054F));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.68421054F));
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 71.1579F));
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 80.42105F));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.68421054F));
             tableLayoutPanel.Size = new Size(771, 475);
             tableLayoutPanel.TabIndex = 0;
             // 
@@ -83,7 +83,7 @@
             labelProductName.Name = "labelProductName";
             labelProductName.Size = new Size(506, 20);
             labelProductName.TabIndex = 19;
-            labelProductName.Text = "Product Name: Batch Subtitle Renamer (BSR)";
+            labelProductName.Text = "Product Name:";
             labelProductName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // labelVersion
@@ -96,22 +96,21 @@
             labelVersion.Name = "labelVersion";
             labelVersion.Size = new Size(506, 20);
             labelVersion.TabIndex = 0;
-            labelVersion.Text = "Version: 1.1.0";
+            labelVersion.Text = "Version:";
             labelVersion.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBoxDescription
             // 
             textBoxDescription.Dock = DockStyle.Fill;
-            textBoxDescription.Location = new Point(261, 91);
+            textBoxDescription.Location = new Point(261, 88);
             textBoxDescription.Margin = new Padding(7, 3, 4, 3);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.ReadOnly = true;
             textBoxDescription.ScrollBars = ScrollBars.Both;
-            textBoxDescription.Size = new Size(506, 332);
+            textBoxDescription.Size = new Size(506, 373);
             textBoxDescription.TabIndex = 23;
             textBoxDescription.TabStop = false;
-            textBoxDescription.Text = resources.GetString("textBoxDescription.Text");
             // 
             // About
             // 
