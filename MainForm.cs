@@ -1,6 +1,4 @@
-using System.Windows.Forms;
-
-namespace SubtitleBatchRenamer
+﻿namespace SubtitleBatchRenamer
 {
     public partial class MainForm : Form
     {
@@ -8,7 +6,7 @@ namespace SubtitleBatchRenamer
         {
             InitializeComponent();
             CustomInitialization();
-            this.Icon = Properties.Resources.SBR;
+	    this.Icon = Properties.Resources.SBR;
         }
 
         private void videoFolderPickerButton_Click(object sender, EventArgs e)
@@ -216,6 +214,19 @@ namespace SubtitleBatchRenamer
                             }
                         }
 
+                        if (row.Cells[subtitleDataGridAppendLabelCheckboxCol.Index].Value != null && (bool)row.Cells[subtitleDataGridAppendLabelCheckboxCol.Index].Value == true)
+                        {
+                            if (row.Cells[subtitleDataGridLabelSelectionCol.Index].Value != null && row.Cells[subtitleDataGridLabelSelectionCol.Index].Value.ToString() != "")
+                            {
+                                newSubtitleFileName += "." + row.Cells[subtitleDataGridLabelSelectionCol.Index].Value.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No labeling selected! Please select a label to append to the subtitle file.", "No subtitle label selected!");
+                                return;
+                            }
+                        }
+
                         if (row.Cells[subtitleDataGridAppendNumCheckboxCol.Index].Value != null && (bool)row.Cells[subtitleDataGridAppendNumCheckboxCol.Index].Value == true)
                         {
                             if (row.Cells[subtitleDataGridNumSelectionCol.Index].Value != null && row.Cells[subtitleDataGridNumSelectionCol.Index].Value.ToString() != "")
@@ -343,9 +354,46 @@ namespace SubtitleBatchRenamer
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void subtitleDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void selectAllLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelComboBoxHidden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectallAppendLabelCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (subtitleDataGridView.Rows.Count > 0)
+            {
+                if (selectAllAppendLabelCheckBox.Checked)
+                {
+                    foreach (DataGridViewRow row in subtitleDataGridView.Rows)
+                    {
+                        row.Cells[subtitleDataGridAppendLabelCheckboxCol.Index].Value = true;
+                    }
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in subtitleDataGridView.Rows)
+                    {
+                        row.Cells[subtitleDataGridAppendLabelCheckboxCol.Index].Value = false;
+                    }
+                }
+            }
+        }
+
+        private void aboutButton_Click_1(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.Show();
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿namespace SubtitleBatchRenamer
+﻿using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
+
+namespace SubtitleBatchRenamer
 {
     partial class MainForm
     {
@@ -20,6 +25,31 @@
             base.Dispose(disposing);
         }
 
+        ////load list of languages from language.txt
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // Define path of text file named "language.txt" located in the application directory
+                string lang_filePath = Path.Combine(Application.StartupPath, "language.txt");
+
+                // Read all lines from the file
+                string[] lines = File.ReadAllLines(lang_filePath);
+
+                // Add the lines to the numComboBoxHidden
+                numComboBoxHidden.Items.AddRange(lines);
+
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors that might occur
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +58,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ComboBox langComboBoxHidden;
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             videoFolderPicker = new FolderBrowserDialog();
             searchVideoFilesButton = new Button();
@@ -38,6 +69,8 @@
             subtitleDataGridSkipCol = new DataGridViewCheckBoxColumn();
             subtitleDataGridAppendLangCheckboxCol = new DataGridViewCheckBoxColumn();
             subtitleDataGridLangSelectionCol = new DataGridViewComboBoxColumn();
+            subtitleDataGridAppendLabelCheckboxCol = new DataGridViewCheckBoxColumn();
+            subtitleDataGridLabelSelectionCol = new DataGridViewComboBoxColumn();
             subtitleDataGridAppendNumCheckboxCol = new DataGridViewCheckBoxColumn();
             subtitleDataGridNumSelectionCol = new DataGridViewComboBoxColumn();
             videoFilesFoundComboBox = new ComboBox();
@@ -45,7 +78,6 @@
             searchSubtitleFilesButton = new Button();
             processFileRenamingButton = new Button();
             exitButton = new Button();
-            langComboBoxHidden = new ComboBox();
             numComboBoxHidden = new ComboBox();
             topControlPanel1 = new Panel();
             videoFolderPathTextbox = new TextBox();
@@ -58,10 +90,26 @@
             selectAllLabel = new Label();
             selectAllAppendLangCheckBox = new CheckBox();
             selectAllSkipFileCheckBox = new CheckBox();
+            selectAllAppendLabelCheckBox = new CheckBox();
+            labelComboBoxHidden = new ComboBox();
+            aboutButton = new Button();
+            langComboBoxHidden = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)subtitleDataGridView).BeginInit();
             topControlPanel1.SuspendLayout();
             topControlPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // langComboBoxHidden
+            // 
+            langComboBoxHidden.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            langComboBoxHidden.FormattingEnabled = true;
+            langComboBoxHidden.Items.AddRange(new object[] { "en-US", "zh-CN", "fr", "ja", "es", "pt" });
+            langComboBoxHidden.Location = new Point(10, 500);
+            langComboBoxHidden.Margin = new Padding(3, 2, 3, 2);
+            langComboBoxHidden.Name = "langComboBoxHidden";
+            langComboBoxHidden.Size = new Size(133, 23);
+            langComboBoxHidden.TabIndex = 13;
+            langComboBoxHidden.Visible = false;
             // 
             // videoFolderPicker
             // 
@@ -95,7 +143,7 @@
             subtitleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             subtitleDataGridView.ColumnHeadersHeight = 29;
             subtitleDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            subtitleDataGridView.Columns.AddRange(new DataGridViewColumn[] { subtitleDataGridIndexCol, subtitleDataGridSubtitleFileNameCol, subtitleDataGridVideoFileCol, subtitleDataGridSkipCol, subtitleDataGridAppendLangCheckboxCol, subtitleDataGridLangSelectionCol, subtitleDataGridAppendNumCheckboxCol, subtitleDataGridNumSelectionCol });
+            subtitleDataGridView.Columns.AddRange(new DataGridViewColumn[] { subtitleDataGridIndexCol, subtitleDataGridSubtitleFileNameCol, subtitleDataGridVideoFileCol, subtitleDataGridSkipCol, subtitleDataGridAppendLangCheckboxCol, subtitleDataGridLangSelectionCol, subtitleDataGridAppendLabelCheckboxCol, subtitleDataGridLabelSelectionCol, subtitleDataGridAppendNumCheckboxCol, subtitleDataGridNumSelectionCol });
             subtitleDataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
             subtitleDataGridView.Location = new Point(10, 63);
             subtitleDataGridView.Margin = new Padding(3, 2, 3, 2);
@@ -107,10 +155,11 @@
             subtitleDataGridView.Size = new Size(1158, 401);
             subtitleDataGridView.StandardTab = true;
             subtitleDataGridView.TabIndex = 7;
+            subtitleDataGridView.CellContentClick += subtitleDataGridView_CellContentClick;
             // 
             // subtitleDataGridIndexCol
             // 
-            subtitleDataGridIndexCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            subtitleDataGridIndexCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             subtitleDataGridIndexCol.HeaderText = "No.";
             subtitleDataGridIndexCol.MinimumWidth = 6;
             subtitleDataGridIndexCol.Name = "subtitleDataGridIndexCol";
@@ -142,26 +191,42 @@
             // subtitleDataGridAppendLangCheckboxCol
             // 
             subtitleDataGridAppendLangCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            subtitleDataGridAppendLangCheckboxCol.HeaderText = "Append Lang";
+            subtitleDataGridAppendLangCheckboxCol.HeaderText = "Add Lang";
             subtitleDataGridAppendLangCheckboxCol.MinimumWidth = 6;
             subtitleDataGridAppendLangCheckboxCol.Name = "subtitleDataGridAppendLangCheckboxCol";
-            subtitleDataGridAppendLangCheckboxCol.Width = 84;
+            subtitleDataGridAppendLangCheckboxCol.Width = 64;
             // 
             // subtitleDataGridLangSelectionCol
             // 
             subtitleDataGridLangSelectionCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             subtitleDataGridLangSelectionCol.HeaderText = "Lang";
-            subtitleDataGridLangSelectionCol.MinimumWidth = 6;
+            subtitleDataGridLangSelectionCol.Items.AddRange(new object[] { "" });
+            subtitleDataGridLangSelectionCol.MinimumWidth = 35;
             subtitleDataGridLangSelectionCol.Name = "subtitleDataGridLangSelectionCol";
             subtitleDataGridLangSelectionCol.Width = 39;
+            // 
+            // subtitleDataGridAppendLabelCheckboxCol
+            // 
+            subtitleDataGridAppendLabelCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            subtitleDataGridAppendLabelCheckboxCol.HeaderText = "Add Label";
+            subtitleDataGridAppendLabelCheckboxCol.Name = "subtitleDataGridAppendLabelCheckboxCol";
+            subtitleDataGridAppendLabelCheckboxCol.Width = 66;
+            // 
+            // subtitleDataGridLabelSelectionCol
+            // 
+            subtitleDataGridLabelSelectionCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            subtitleDataGridLabelSelectionCol.HeaderText = "Label";
+            subtitleDataGridLabelSelectionCol.MinimumWidth = 50;
+            subtitleDataGridLabelSelectionCol.Name = "subtitleDataGridLabelSelectionCol";
+            subtitleDataGridLabelSelectionCol.Width = 50;
             // 
             // subtitleDataGridAppendNumCheckboxCol
             // 
             subtitleDataGridAppendNumCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            subtitleDataGridAppendNumCheckboxCol.HeaderText = "Append Num";
+            subtitleDataGridAppendNumCheckboxCol.HeaderText = "Add Num";
             subtitleDataGridAppendNumCheckboxCol.MinimumWidth = 6;
             subtitleDataGridAppendNumCheckboxCol.Name = "subtitleDataGridAppendNumCheckboxCol";
-            subtitleDataGridAppendNumCheckboxCol.Width = 85;
+            subtitleDataGridAppendNumCheckboxCol.Width = 65;
             // 
             // subtitleDataGridNumSelectionCol
             // 
@@ -227,24 +292,12 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
-            // langComboBoxHidden
-            // 
-            langComboBoxHidden.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            langComboBoxHidden.FormattingEnabled = true;
-            langComboBoxHidden.Items.AddRange(new object[] { "en", "en.SDH", "es", "fr", "aa", "ab", "ae", "af", "ak", "am", "an", "ar", "as", "av", "ay", "az", "ba", "be", "bg", "bh", "bi", "bm", "bn", "bo", "br", "bs", "ca", "ce", "ch", "co", "cr", "cs", "cu", "cv", "cy", "da", "de", "dv", "dz", "ee", "el", "eo", "et", "eu", "fa", "ff", "fi", "fj", "fo", "fy", "ga", "gd", "gl", "gn", "gu", "gv", "ha", "he", "hi", "ho", "hr", "ht", "hu", "hy", "hz", "ia", "id", "ie", "ig", "ii", "ik", "io", "is", "it", "iu", "ja", "jv", "ka", "kg", "ki", "kj", "kk", "kl", "km", "kn", "ko", "kr", "ks", "ku", "kv", "kw", "ky", "la", "lb", "lg", "li", "ln", "lo", "lt", "lu", "lv", "mg", "mh", "mi", "mk", "ml", "mn", "mr", "ms", "mt", "my", "na", "nb", "nd", "ne", "ng", "nl", "nn", "no", "nr", "nv", "ny", "oc", "oj", "om", "or", "os", "pa", "pi", "pl", "ps", "pt", "qu", "rm", "rn", "ro", "ru", "rw", "sa", "sc", "sd", "se", "sg", "si", "sk", "sl", "sm", "sn", "so", "sq", "sr", "ss", "st", "su", "sv", "sw", "ta", "te", "tg", "th", "ti", "tk", "tl", "tn", "to", "tr", "ts", "tt", "tw", "ty", "ug", "uk", "ur", "uz", "ve", "vi", "vo", "wa", "wo", "wx", "io", "za", "zh", "zu" });
-            langComboBoxHidden.Location = new Point(10, 493);
-            langComboBoxHidden.Margin = new Padding(3, 2, 3, 2);
-            langComboBoxHidden.Name = "langComboBoxHidden";
-            langComboBoxHidden.Size = new Size(133, 23);
-            langComboBoxHidden.TabIndex = 13;
-            langComboBoxHidden.Visible = false;
-            // 
             // numComboBoxHidden
             // 
             numComboBoxHidden.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             numComboBoxHidden.FormattingEnabled = true;
             numComboBoxHidden.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            numComboBoxHidden.Location = new Point(148, 493);
+            numComboBoxHidden.Location = new Point(276, 500);
             numComboBoxHidden.Margin = new Padding(3, 2, 3, 2);
             numComboBoxHidden.Name = "numComboBoxHidden";
             numComboBoxHidden.Size = new Size(133, 23);
@@ -308,7 +361,7 @@
             fileFormatComboBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             fileFormatComboBox.ForeColor = SystemColors.WindowText;
             fileFormatComboBox.FormattingEnabled = true;
-            fileFormatComboBox.Items.AddRange(new object[] { "All Files", "AVI", "MKV", "MP4", "RM", "WMV" });
+            fileFormatComboBox.Items.AddRange(new object[] { "All Files", "AVI", "FLV", "MKV", "MOV", "MPEG", "MPG", "MP4", "M4V", "RM", "WEBM", "WMV" });
             fileFormatComboBox.Location = new Point(768, 1);
             fileFormatComboBox.Margin = new Padding(3, 2, 3, 2);
             fileFormatComboBox.Name = "fileFormatComboBox";
@@ -342,12 +395,12 @@
             // 
             selectAllAppendNumCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllAppendNumCheckBox.AutoSize = true;
-            selectAllAppendNumCheckBox.Location = new Point(1071, 469);
+            selectAllAppendNumCheckBox.Location = new Point(1099, 470);
             selectAllAppendNumCheckBox.Margin = new Padding(3, 2, 3, 2);
             selectAllAppendNumCheckBox.Name = "selectAllAppendNumCheckBox";
-            selectAllAppendNumCheckBox.Size = new Size(98, 19);
+            selectAllAppendNumCheckBox.Size = new Size(78, 19);
             selectAllAppendNumCheckBox.TabIndex = 18;
-            selectAllAppendNumCheckBox.Text = "Append Num";
+            selectAllAppendNumCheckBox.Text = "Add Num";
             selectAllAppendNumCheckBox.UseVisualStyleBackColor = true;
             selectAllAppendNumCheckBox.CheckedChanged += selectAllAppendNumCheckBox_CheckedChanged;
             // 
@@ -355,22 +408,23 @@
             // 
             selectAllLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllLabel.AutoSize = true;
-            selectAllLabel.Location = new Point(734, 470);
+            selectAllLabel.Location = new Point(727, 470);
             selectAllLabel.Name = "selectAllLabel";
             selectAllLabel.Size = new Size(118, 15);
             selectAllLabel.TabIndex = 19;
             selectAllLabel.Text = "Select / De-select All:";
+            selectAllLabel.Click += selectAllLabel_Click;
             // 
             // selectAllAppendLangCheckBox
             // 
             selectAllAppendLangCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllAppendLangCheckBox.AutoSize = true;
-            selectAllAppendLangCheckBox.Location = new Point(962, 469);
+            selectAllAppendLangCheckBox.Location = new Point(931, 470);
             selectAllAppendLangCheckBox.Margin = new Padding(3, 2, 3, 2);
             selectAllAppendLangCheckBox.Name = "selectAllAppendLangCheckBox";
-            selectAllAppendLangCheckBox.Size = new Size(97, 19);
+            selectAllAppendLangCheckBox.Size = new Size(77, 19);
             selectAllAppendLangCheckBox.TabIndex = 20;
-            selectAllAppendLangCheckBox.Text = "Append Lang";
+            selectAllAppendLangCheckBox.Text = "Add Lang";
             selectAllAppendLangCheckBox.UseVisualStyleBackColor = true;
             selectAllAppendLangCheckBox.CheckedChanged += selectAllAppendLangCheckBox_CheckedChanged;
             // 
@@ -378,7 +432,7 @@
             // 
             selectAllSkipFileCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllSkipFileCheckBox.AutoSize = true;
-            selectAllSkipFileCheckBox.Location = new Point(878, 469);
+            selectAllSkipFileCheckBox.Location = new Point(856, 470);
             selectAllSkipFileCheckBox.Margin = new Padding(3, 2, 3, 2);
             selectAllSkipFileCheckBox.Name = "selectAllSkipFileCheckBox";
             selectAllSkipFileCheckBox.Size = new Size(69, 19);
@@ -387,11 +441,48 @@
             selectAllSkipFileCheckBox.UseVisualStyleBackColor = true;
             selectAllSkipFileCheckBox.CheckedChanged += selectAllSkipFileCheckBox_CheckedChanged;
             // 
+            // selectAllAppendLabelCheckBox
+            // 
+            selectAllAppendLabelCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            selectAllAppendLabelCheckBox.AutoSize = true;
+            selectAllAppendLabelCheckBox.Location = new Point(1014, 470);
+            selectAllAppendLabelCheckBox.Margin = new Padding(3, 2, 3, 2);
+            selectAllAppendLabelCheckBox.Name = "selectAllAppendLabelCheckBox";
+            selectAllAppendLabelCheckBox.Size = new Size(79, 19);
+            selectAllAppendLabelCheckBox.TabIndex = 22;
+            selectAllAppendLabelCheckBox.Text = "Add Label";
+            selectAllAppendLabelCheckBox.UseVisualStyleBackColor = true;
+            selectAllAppendLabelCheckBox.CheckedChanged += selectallAppendLabelCheckBox_CheckedChanged;
+            // 
+            // labelComboBoxHidden
+            // 
+            labelComboBoxHidden.FormattingEnabled = true;
+            labelComboBoxHidden.Items.AddRange(new object[] { "CC", "HI", "SDH", "FORCED", "COMMENTARY", "SIGNS" });
+            labelComboBoxHidden.Location = new Point(149, 500);
+            labelComboBoxHidden.Name = "labelComboBoxHidden";
+            labelComboBoxHidden.Size = new Size(121, 23);
+            labelComboBoxHidden.TabIndex = 23;
+            labelComboBoxHidden.Visible = false;
+            labelComboBoxHidden.SelectedIndexChanged += labelComboBoxHidden_SelectedIndexChanged;
+            // 
+            // aboutButton
+            // 
+            aboutButton.Location = new Point(10, 492);
+            aboutButton.Name = "aboutButton";
+            aboutButton.Size = new Size(75, 23);
+            aboutButton.TabIndex = 24;
+            aboutButton.Text = "About";
+            aboutButton.UseVisualStyleBackColor = true;
+            aboutButton.Click += aboutButton_Click_1;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1181, 533);
+            Controls.Add(aboutButton);
+            Controls.Add(labelComboBoxHidden);
+            Controls.Add(selectAllAppendLabelCheckBox);
             Controls.Add(selectAllSkipFileCheckBox);
             Controls.Add(selectAllAppendLangCheckBox);
             Controls.Add(selectAllLabel);
@@ -407,8 +498,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MinimumSize = new Size(1197, 572);
             Name = "MainForm";
-            Text = "Subtitle Renamer";
-            Load += MainForm_Load;
+            Text = "SBR";
             ((System.ComponentModel.ISupportInitialize)subtitleDataGridView).EndInit();
             topControlPanel1.ResumeLayout(false);
             topControlPanel1.PerformLayout();
@@ -436,7 +526,32 @@
             selectAllAppendLangCheckBox.Enabled = false;
             selectAllAppendNumCheckBox.Enabled = false;
 
-            subtitleDataGridLangSelectionCol.DataSource = langComboBoxHidden.Items;
+            {
+                try
+                {
+                    // Read all lines from the text file
+                    List<string> lines = new List<string>(File.ReadAllLines(@"language.txt"));
+
+                    // Find the ComboBoxColumn
+                    DataGridViewComboBoxColumn comboBoxColumn = subtitleDataGridView.Columns["subtitleDataGridLangSelectionCol"] as DataGridViewComboBoxColumn;
+
+                    if (comboBoxColumn != null)
+                    {
+                        // Set the DataSource property of the ComboBoxColumn
+                        comboBoxColumn.DataSource = lines;
+                    }
+                    else
+                    {
+                        MessageBox.Show("ComboBoxColumn 'subtitleDataGridLangSelectionCol' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle any errors that might occur
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            subtitleDataGridLabelSelectionCol.DataSource = labelComboBoxHidden.Items;
             subtitleDataGridNumSelectionCol.DataSource = numComboBoxHidden.Items;
         }
 
@@ -459,17 +574,23 @@
         protected TextBox videoFolderPathTextbox;
         private Panel topControlPanel2;
         private Button startOverButton;
+        private CheckBox selectAllAppendNumCheckBox;
+        private Label selectAllLabel;
+        private CheckBox selectAllAppendLangCheckBox;
+        private CheckBox selectAllSkipFileCheckBox;
+        private CheckBox checkBox1;
+        private CheckBox selectAllAppendLabelCheckBox;
+        private ComboBox labelComboBoxHidden;
         private DataGridViewTextBoxColumn subtitleDataGridIndexCol;
         private DataGridViewTextBoxColumn subtitleDataGridSubtitleFileNameCol;
         private DataGridViewComboBoxColumn subtitleDataGridVideoFileCol;
         private DataGridViewCheckBoxColumn subtitleDataGridSkipCol;
         private DataGridViewCheckBoxColumn subtitleDataGridAppendLangCheckboxCol;
         private DataGridViewComboBoxColumn subtitleDataGridLangSelectionCol;
+        private DataGridViewCheckBoxColumn subtitleDataGridAppendLabelCheckboxCol;
+        private DataGridViewComboBoxColumn subtitleDataGridLabelSelectionCol;
         private DataGridViewCheckBoxColumn subtitleDataGridAppendNumCheckboxCol;
         private DataGridViewComboBoxColumn subtitleDataGridNumSelectionCol;
-        private CheckBox selectAllAppendNumCheckBox;
-        private Label selectAllLabel;
-        private CheckBox selectAllAppendLangCheckBox;
-        private CheckBox selectAllSkipFileCheckBox;
+        private Button aboutButton;
     }
 }

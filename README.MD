@@ -1,4 +1,4 @@
-# Subtitle Batch Renamer
+# Subtitle Batch Renamer (SBR)
 
 
 ## Summary
@@ -11,5 +11,3 @@
 
 - Implement INFO and ERROR logging.
 - Implement method to export original file names and file path to a text (.txt) file before file renaming and moving.
-- Add about section with application info and languages list.
-- Add seperate Append option for additional subtitle labels (SDH/HI, CC, FORCED, ETC)
