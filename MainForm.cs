@@ -200,6 +200,7 @@
                         newSubtitleFileName = videoFileName;
 
                         DataGridViewCheckBoxCell appendLangCheckboxCell = row.Cells[subtitleDataGridAppendLangCheckboxCol.Index] as DataGridViewCheckBoxCell;
+			DataGridViewCheckBoxCell appendLabelCheckboxCell = row.Cells[subtitleDataGridAppendLabelCheckboxCol.Index] as DataGridViewCheckBoxCell;
                         DataGridViewCheckBoxCell appendNumCheckboxCell = row.Cells[subtitleDataGridAppendNumCheckboxCol.Index] as DataGridViewCheckBoxCell;
 
                         if (row.Cells[subtitleDataGridAppendLangCheckboxCol.Index].Value != null && (bool)row.Cells[subtitleDataGridAppendLangCheckboxCol.Index].Value == true)
