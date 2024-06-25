@@ -599,7 +599,6 @@ namespace SubtitleBatchRenamer
         private Label selectAllLabel;
         private CheckBox selectAllAppendLangCheckBox;
         private CheckBox selectAllSkipFileCheckBox;
-        private CheckBox checkBox1;
         private CheckBox selectAllAppendLabelCheckBox;
         private ComboBox labelComboBoxHidden;
         private Button aboutButton;
