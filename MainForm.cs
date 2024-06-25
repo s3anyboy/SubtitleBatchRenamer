@@ -151,6 +151,7 @@
                 processFileRenamingButton.Enabled = true;
                 selectAllSkipFileCheckBox.Enabled = true;
                 selectAllAppendLangCheckBox.Enabled = true;
+                selectAllAppendLabelCheckBox.Enabled = true;
                 selectAllAppendNumCheckBox.Enabled = true;
             }
             else
@@ -268,9 +269,11 @@
                 processFileRenamingButton.Enabled = false;
                 selectAllSkipFileCheckBox.Checked = false;
                 selectAllAppendLangCheckBox.Checked = false;
+                selectAllAppendLabelCheckBox.Checked = false;
                 selectAllAppendNumCheckBox.Checked = false;
                 selectAllSkipFileCheckBox.Enabled = false;
                 selectAllAppendLangCheckBox.Enabled = false;
+                selectAllAppendLabelCheckBox.Enabled = false;
                 selectAllAppendNumCheckBox.Enabled = false;
             }
         }
@@ -285,9 +288,11 @@
             processFileRenamingButton.Enabled = false;
             selectAllSkipFileCheckBox.Checked = false;
             selectAllAppendLangCheckBox.Checked = false;
+            selectAllAppendLabelCheckBox.Checked = false;
             selectAllAppendNumCheckBox.Checked = false;
             selectAllSkipFileCheckBox.Enabled = false;
             selectAllAppendLangCheckBox.Enabled = false;
+            selectAllAppendLabelCheckBox.Enabled = false;
             selectAllAppendNumCheckBox.Enabled = false;
         }
 

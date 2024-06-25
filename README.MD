@@ -12,3 +12,4 @@
 - Implement INFO and ERROR logging.
 - Implement method to export original file names and file path to a text (.txt) file before file renaming and moving.
 - Implement method to help differentiate between same-language subtitle types (filesize compare?)
+- Implement method to deal with extremely long filepath names for better readability.

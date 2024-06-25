@@ -60,6 +60,8 @@ namespace SubtitleBatchRenamer
         {
             ComboBox langComboBoxHidden;
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             videoFolderPicker = new FolderBrowserDialog();
             searchVideoFilesButton = new Button();
             subtitleDataGridView = new DataGridView();
@@ -131,19 +133,35 @@ namespace SubtitleBatchRenamer
             // 
             subtitleDataGridView.AllowUserToAddRows = false;
             subtitleDataGridView.AllowUserToDeleteRows = false;
-            subtitleDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            subtitleDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            subtitleDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = SystemColors.ScrollBar;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            subtitleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            subtitleDataGridView.ColumnHeadersHeight = 29;
-            subtitleDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            subtitleDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            subtitleDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            subtitleDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            subtitleDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            subtitleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            subtitleDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             subtitleDataGridView.Columns.AddRange(new DataGridViewColumn[] { subtitleDataGridIndexCol, subtitleDataGridSubtitleFileNameCol, subtitleDataGridVideoFileCol, subtitleDataGridSkipCol, subtitleDataGridAppendLangCheckboxCol, subtitleDataGridLangSelectionCol, subtitleDataGridAppendLabelCheckboxCol, subtitleDataGridLabelSelectionCol, subtitleDataGridAppendNumCheckboxCol, subtitleDataGridNumSelectionCol });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            subtitleDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             subtitleDataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
             subtitleDataGridView.Location = new Point(10, 63);
             subtitleDataGridView.Margin = new Padding(3, 2, 3, 2);
@@ -151,6 +169,7 @@ namespace SubtitleBatchRenamer
             subtitleDataGridView.RowHeadersVisible = false;
             subtitleDataGridView.RowHeadersWidth = 51;
             subtitleDataGridView.RowTemplate.Height = 29;
+            subtitleDataGridView.RowTemplate.Resizable = DataGridViewTriState.True;
             subtitleDataGridView.SelectionMode = DataGridViewSelectionMode.CellSelect;
             subtitleDataGridView.Size = new Size(1158, 401);
             subtitleDataGridView.StandardTab = true;
@@ -159,42 +178,42 @@ namespace SubtitleBatchRenamer
             // 
             // subtitleDataGridIndexCol
             // 
-            subtitleDataGridIndexCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            subtitleDataGridIndexCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
             subtitleDataGridIndexCol.HeaderText = "No.";
-            subtitleDataGridIndexCol.MinimumWidth = 6;
+            subtitleDataGridIndexCol.MinimumWidth = 50;
             subtitleDataGridIndexCol.Name = "subtitleDataGridIndexCol";
-            subtitleDataGridIndexCol.Width = 51;
+            subtitleDataGridIndexCol.Width = 50;
             // 
             // subtitleDataGridSubtitleFileNameCol
             // 
             subtitleDataGridSubtitleFileNameCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             subtitleDataGridSubtitleFileNameCol.HeaderText = "Subtitles";
-            subtitleDataGridSubtitleFileNameCol.MinimumWidth = 6;
+            subtitleDataGridSubtitleFileNameCol.MinimumWidth = 50;
             subtitleDataGridSubtitleFileNameCol.Name = "subtitleDataGridSubtitleFileNameCol";
             // 
             // subtitleDataGridVideoFileCol
             // 
             subtitleDataGridVideoFileCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             subtitleDataGridVideoFileCol.HeaderText = "Video Files";
-            subtitleDataGridVideoFileCol.MinimumWidth = 6;
+            subtitleDataGridVideoFileCol.MinimumWidth = 50;
             subtitleDataGridVideoFileCol.Name = "subtitleDataGridVideoFileCol";
             // 
             // subtitleDataGridSkipCol
             // 
-            subtitleDataGridSkipCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            subtitleDataGridSkipCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             subtitleDataGridSkipCol.HeaderText = "Skip File";
             subtitleDataGridSkipCol.MinimumWidth = 6;
             subtitleDataGridSkipCol.Name = "subtitleDataGridSkipCol";
             subtitleDataGridSkipCol.Resizable = DataGridViewTriState.False;
-            subtitleDataGridSkipCol.Width = 56;
+            subtitleDataGridSkipCol.Width = 50;
             // 
             // subtitleDataGridAppendLangCheckboxCol
             // 
-            subtitleDataGridAppendLangCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            subtitleDataGridAppendLangCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             subtitleDataGridAppendLangCheckboxCol.HeaderText = "Add Lang";
             subtitleDataGridAppendLangCheckboxCol.MinimumWidth = 6;
             subtitleDataGridAppendLangCheckboxCol.Name = "subtitleDataGridAppendLangCheckboxCol";
-            subtitleDataGridAppendLangCheckboxCol.Width = 64;
+            subtitleDataGridAppendLangCheckboxCol.Width = 50;
             // 
             // subtitleDataGridLangSelectionCol
             // 
@@ -207,10 +226,10 @@ namespace SubtitleBatchRenamer
             // 
             // subtitleDataGridAppendLabelCheckboxCol
             // 
-            subtitleDataGridAppendLabelCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            subtitleDataGridAppendLabelCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             subtitleDataGridAppendLabelCheckboxCol.HeaderText = "Add Label";
             subtitleDataGridAppendLabelCheckboxCol.Name = "subtitleDataGridAppendLabelCheckboxCol";
-            subtitleDataGridAppendLabelCheckboxCol.Width = 66;
+            subtitleDataGridAppendLabelCheckboxCol.Width = 50;
             // 
             // subtitleDataGridLabelSelectionCol
             // 
@@ -222,19 +241,19 @@ namespace SubtitleBatchRenamer
             // 
             // subtitleDataGridAppendNumCheckboxCol
             // 
-            subtitleDataGridAppendNumCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            subtitleDataGridAppendNumCheckboxCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             subtitleDataGridAppendNumCheckboxCol.HeaderText = "Add Num";
             subtitleDataGridAppendNumCheckboxCol.MinimumWidth = 6;
             subtitleDataGridAppendNumCheckboxCol.Name = "subtitleDataGridAppendNumCheckboxCol";
-            subtitleDataGridAppendNumCheckboxCol.Width = 65;
+            subtitleDataGridAppendNumCheckboxCol.Width = 50;
             // 
             // subtitleDataGridNumSelectionCol
             // 
-            subtitleDataGridNumSelectionCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            subtitleDataGridNumSelectionCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             subtitleDataGridNumSelectionCol.HeaderText = "Num";
             subtitleDataGridNumSelectionCol.MinimumWidth = 6;
             subtitleDataGridNumSelectionCol.Name = "subtitleDataGridNumSelectionCol";
-            subtitleDataGridNumSelectionCol.Width = 40;
+            subtitleDataGridNumSelectionCol.Width = 50;
             // 
             // videoFilesFoundComboBox
             // 
@@ -325,7 +344,7 @@ namespace SubtitleBatchRenamer
             videoFolderPathTextbox.BackColor = Color.White;
             videoFolderPathTextbox.Enabled = false;
             videoFolderPathTextbox.ForeColor = Color.White;
-            videoFolderPathTextbox.Location = new Point(97, 2);
+            videoFolderPathTextbox.Location = new Point(98, 1);
             videoFolderPathTextbox.Margin = new Padding(3, 2, 3, 2);
             videoFolderPathTextbox.Name = "videoFolderPathTextbox";
             videoFolderPathTextbox.Size = new Size(610, 23);
@@ -335,7 +354,7 @@ namespace SubtitleBatchRenamer
             // 
             videoFileFormatDropdownLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             videoFileFormatDropdownLabel.AutoSize = true;
-            videoFileFormatDropdownLabel.Location = new Point(717, 4);
+            videoFileFormatDropdownLabel.Location = new Point(714, 4);
             videoFileFormatDropdownLabel.Name = "videoFileFormatDropdownLabel";
             videoFileFormatDropdownLabel.Size = new Size(48, 15);
             videoFileFormatDropdownLabel.TabIndex = 4;
@@ -362,7 +381,7 @@ namespace SubtitleBatchRenamer
             fileFormatComboBox.ForeColor = SystemColors.WindowText;
             fileFormatComboBox.FormattingEnabled = true;
             fileFormatComboBox.Items.AddRange(new object[] { "All Files", "AVI", "FLV", "MKV", "MOV", "MPEG", "MPG", "MP4", "M4V", "RM", "WEBM", "WMV" });
-            fileFormatComboBox.Location = new Point(768, 1);
+            fileFormatComboBox.Location = new Point(765, -1);
             fileFormatComboBox.Margin = new Padding(3, 2, 3, 2);
             fileFormatComboBox.Name = "fileFormatComboBox";
             fileFormatComboBox.Size = new Size(92, 23);
@@ -408,7 +427,7 @@ namespace SubtitleBatchRenamer
             // 
             selectAllLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             selectAllLabel.AutoSize = true;
-            selectAllLabel.Location = new Point(727, 470);
+            selectAllLabel.Location = new Point(732, 471);
             selectAllLabel.Name = "selectAllLabel";
             selectAllLabel.Size = new Size(118, 15);
             selectAllLabel.TabIndex = 19;
@@ -467,9 +486,10 @@ namespace SubtitleBatchRenamer
             // 
             // aboutButton
             // 
-            aboutButton.Location = new Point(10, 492);
+            aboutButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            aboutButton.Location = new Point(13, 489);
             aboutButton.Name = "aboutButton";
-            aboutButton.Size = new Size(75, 23);
+            aboutButton.Size = new Size(50, 25);
             aboutButton.TabIndex = 24;
             aboutButton.Text = "About";
             aboutButton.UseVisualStyleBackColor = true;
@@ -524,6 +544,7 @@ namespace SubtitleBatchRenamer
             subtitleDataGridView.ShowCellToolTips = false;
             selectAllSkipFileCheckBox.Enabled = false;
             selectAllAppendLangCheckBox.Enabled = false;
+            selectAllAppendLabelCheckBox.Enabled = false;
             selectAllAppendNumCheckBox.Enabled = false;
 
             {
@@ -581,6 +602,7 @@ namespace SubtitleBatchRenamer
         private CheckBox checkBox1;
         private CheckBox selectAllAppendLabelCheckBox;
         private ComboBox labelComboBoxHidden;
+        private Button aboutButton;
         private DataGridViewTextBoxColumn subtitleDataGridIndexCol;
         private DataGridViewTextBoxColumn subtitleDataGridSubtitleFileNameCol;
         private DataGridViewComboBoxColumn subtitleDataGridVideoFileCol;
@@ -591,6 +613,5 @@ namespace SubtitleBatchRenamer
         private DataGridViewComboBoxColumn subtitleDataGridLabelSelectionCol;
         private DataGridViewCheckBoxColumn subtitleDataGridAppendNumCheckboxCol;
         private DataGridViewComboBoxColumn subtitleDataGridNumSelectionCol;
-        private Button aboutButton;
     }
 }
