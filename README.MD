@@ -16,10 +16,12 @@
 - Add Num: Add a number to the end of the subtitle name.
 
 **Language**
+
 The most common and widely support code is the 2-letter ISO 639 so all valid languages are included. Some players support IETF BCP 47 with country subdivision (en-US) so the most common country subdivions are also included. Some 3-letter codes for ConLangs without 2-letter codes are also included. (Klingon and Elvish languages). 
 If you need a missing language code, simply add it as a new line in language.txt.
 
 **Labels**
+
 Not all players or applications support all labels. The available labels are:
 - CC - Closed Captions
 - HI - Hearing Impaired
